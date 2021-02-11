@@ -48,7 +48,7 @@ var CorpusLastUpdated = prometheus.NewGaugeVec(
 var Crashers = prometheus.NewGaugeVec(
 	prometheus.GaugeOpts{
 		Namespace: Namespace,
-		Name:      "crasers",
+		Name:      "crashers",
 		Help:      "Total number of crashers",
 	},
 	[]string{"case"},
