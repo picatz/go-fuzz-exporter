@@ -12,9 +12,6 @@ RUN tar xvf grafana-7.0.0.linux-amd64.tar.gz
 RUN mv grafana-7.0.0 /etc/grafana
 RUN rm grafana-7.0.0.linux-amd64.tar.gz
 
-# install go-fuzz and go-fuzz-build
-RUN go get -u github.com/dvyukov/go-fuzz/go-fuzz github.com/dvyukov/go-fuzz/go-fuzz-build
-
 # setup working directory
 RUN mkdir /go-fuzz-exporter
 WORKDIR /go-fuzz-exporter
