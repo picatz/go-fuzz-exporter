@@ -1,5 +1,4 @@
 // +build gofuzz
-
 package metrics
 
 func FuzzParseLine(data []byte) int {
