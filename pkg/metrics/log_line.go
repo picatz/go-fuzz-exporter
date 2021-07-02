@@ -4,7 +4,12 @@ import (
 	"time"
 )
 
-type LogLine struct {
+type LogLine interface {
+	IsLogLine()
+}
+
+type OldLogLine struct {
+	LogLine
 	Workers           float64
 	Corpus            float64
 	CorpusLastUpdated time.Duration
@@ -13,4 +18,13 @@ type LogLine struct {
 	Execs             float64
 	ExecsPerSecond    float64
 	Coverage          float64
+}
+
+// fuzzing, elapsed: 30.0s, execs: 3345 (111/sec), workers: 1, interesting: 7
+type NewLogLine struct {
+	LogLine
+	Workers        float64
+	Interesting    float64
+	Execs          float64
+	ExecsPerSecond float64
 }

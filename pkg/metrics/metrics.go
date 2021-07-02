@@ -16,6 +16,7 @@ func init() {
 	prometheus.MustRegister(Coverage)
 	prometheus.MustRegister(Lines)
 	prometheus.MustRegister(LinesSkipped)
+	prometheus.MustRegister(Interesting)
 }
 
 var Workers = prometheus.NewGaugeVec(
@@ -104,6 +105,15 @@ var LinesSkipped = prometheus.NewCounterVec(
 		Namespace: Namespace,
 		Name:      "lines_skipped",
 		Help:      "Total log lines skipped",
+	},
+	[]string{"case"},
+)
+
+var Interesting = prometheus.NewGaugeVec(
+	prometheus.GaugeOpts{
+		Namespace: Namespace,
+		Name:      "interesting",
+		Help:      "Total interesting inputs",
 	},
 	[]string{"case"},
 )
